@@ -16,6 +16,7 @@ const Login = () => {
       handleLogin,
       isPendingLogin,
       errors,
+      handleLoginGoogle
     } = useLogin();
   
     return (
@@ -115,7 +116,7 @@ const Login = () => {
               </div>
   
               <div className="flex items-center gap-6 justify-center">
-                <Link href="/">
+                <Link href="/" onClick={handleLoginGoogle}>
                   <FcGoogle className="text-5xl cursor-pointer" />
                 </Link>
                 <Link href="/">
@@ -136,7 +137,7 @@ const Login = () => {
 
         <div className="w-1/3 items-center justify-center">
           <Image
-            src="/images/register.png"
+            src="/images/Login.png"
             alt="register"
             width={1024}
             height={1024}

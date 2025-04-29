@@ -11,6 +11,7 @@ const authServices = {
             Authorization: `Bearer ${token}` 
         } 
     }),
+    loginGoogle: (payload: { token: string}) => instance.post(`${endpoint.AUTH}/login-google`, payload),
 };
 
 export default authServices;

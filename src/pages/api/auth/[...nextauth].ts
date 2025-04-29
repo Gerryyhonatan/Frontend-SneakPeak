@@ -3,6 +3,7 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { JWTExtended, SessionExtended, UserExtended } from "@/types/Auth";
 import authServices from "@/services/auth.service";
+import GoogleProvider from "next-auth/providers/google";
 
 export default NextAuth(
     {
@@ -39,8 +40,35 @@ export default NextAuth(
                     }
                 },
             }),
+            GoogleProvider({
+                clientId: environment.GOOGLE_CLIENT_ID,
+                clientSecret: environment.GOOGLE_CLIENT_SECRET,
+            }),
         ],
         callbacks: {
+            async signIn({ account }) {
+                if (account?.provider === "google") {
+                    try {
+                        const googleToken = account.id_token;
+                        const res = await authServices.loginGoogle({ token: googleToken! });
+            
+                        if (res.status === 200) {
+                            // Simpan data user ke JWT via token.user
+                            account.access_token = res.data.data.accessToken;
+                            (account as any).userFromBackend = res.data.data;
+                            return true;
+                        }
+                        return false;
+                    } catch (err) {
+                        console.error("Google login failed:", err);
+                        return false;
+                    }
+                }
+                return true;
+            },
+            
+            
+
             async jwt({ token, user }: {token: JWTExtended; user: UserExtended | null}) {
                 if (user) {
                     token.user = user;

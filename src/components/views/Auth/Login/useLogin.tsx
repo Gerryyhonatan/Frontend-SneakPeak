@@ -50,6 +50,8 @@ const useLogin = () => {
 
     const handleLogin = (data: ILogin) => mutateLogin(data)
 
+    const handleLoginGoogle = () => signIn("google", {callbackUrl});
+
     return {
         isVisible,
         toggleVisibility,
@@ -58,6 +60,7 @@ const useLogin = () => {
         handleLogin,
         isPendingLogin,
         errors,
+        handleLoginGoogle
     };
 };
 
