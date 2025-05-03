@@ -24,7 +24,7 @@ const DashboardLayoutSidebar = (props: PropTypes) => {
         <div className={cn("fixed z-50 flex h-screen w-full max-w-[300px] -translate-x-full flex-col justify-between border-r-1 border-default-200 bg-white px-4 py-6 transition-all lg:relative lg:translate-x-0", {"translate-x-0" : isOpen},)}>
             <div>
                 <div className="flex justify-start mx-2 w-full">
-                    <h1 className="mb-2 w-32 cursor-pointer font-bold text-primary text-3xl" onClick={() => router.push("/")}>SneakPeak</h1>
+                    <h1 className="mb-4 w-32 cursor-pointer font-bold text-primary text-3xl" onClick={() => router.push("/")}>SneakPeak</h1>
                 </div>
                 <Listbox items={sidebarItems} variant="solid" aria-label="Dashboard Menu">{(item) => (
                         <ListboxItem key={item.key} className={cn("my-0.5 h-12 text-2xl", {
