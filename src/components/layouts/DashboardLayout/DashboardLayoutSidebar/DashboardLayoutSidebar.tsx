@@ -3,6 +3,7 @@ import { Button, Listbox, ListboxItem } from "@nextui-org/react";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { JSX } from "react";
 import { RiLogoutBoxFill } from "react-icons/ri";
 
 interface SidebarItem {

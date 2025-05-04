@@ -1,9 +1,8 @@
 import { AiFillProduct } from "react-icons/ai";
-import { BsFillGrid1X2Fill, BsFillPeopleFill } from "react-icons/bs";
+import { BsBoxFill, BsFillGrid1X2Fill, BsPeopleFill } from "react-icons/bs";
 import { CiGrid41} from "react-icons/ci";
-import { FaBox } from "react-icons/fa";
 import { GiNecklaceDisplay } from "react-icons/gi";
-import { IoMdSettings } from "react-icons/io";
+import { MdOutlineDisplaySettings } from "react-icons/md";
 import { PiSneakerMoveFill } from "react-icons/pi";
 import { RiAdminFill } from "react-icons/ri";
 import { TbShirtFilled } from "react-icons/tb";
@@ -16,16 +15,10 @@ const SIDEBAR_ADMIN = [
         icon: <BsFillGrid1X2Fill/>
     },
     {
-        key: "orders",
-        label: "Orders",
-        href: "/admin/orders",
-        icon: <FaBox/>
-    },
-    {
-        key: "customers",
-        label: "Customers",
-        href: "/admin/customers",
-        icon: <BsFillPeopleFill/>
+        key: "productSetup",
+        label: "Product Setup",
+        href: "/admin/productSetup",
+        icon: <MdOutlineDisplaySettings/>
     },
     {
         key: "sneakers",
@@ -52,16 +45,22 @@ const SIDEBAR_ADMIN = [
         icon: <AiFillProduct/>
     },
     {
+        key: "orders",
+        label: "Orders",
+        href: "/admin/orders",
+        icon: <BsBoxFill/>
+    },
+    {
         key: "adminSettings",
         label: "Admin",
         href: "/admin/adminSettings",
         icon: <RiAdminFill/>
     },
     {
-        key: "settings",
-        label: "Settings",
-        href: "/admin/settings",
-        icon: <IoMdSettings/>
+        key: "customers",
+        label: "Customers",
+        href: "/admin/customers",
+        icon: <BsPeopleFill/>
     },
 ]
 
